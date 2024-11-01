@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
 import "./App.css";
+import { useState, useEffect } from "react";
+import React from "react";
 
-function App() {
-  const [time, setTime] = useState(0);
+export default function App() {
   const [running, setRunning] = useState(false);
+  const [time, setTime] = useState(0);
 
   useEffect(() => {
     let interval = null;
@@ -22,7 +23,7 @@ function App() {
       <div className="timer-display">
         <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
         <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
-        <span>{"0" + ((time / 10) % 100)}</span>
+        <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
       </div>
       <div className="button-container">
         {running ? (
@@ -57,5 +58,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
