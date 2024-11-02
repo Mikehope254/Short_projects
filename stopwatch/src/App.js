@@ -11,7 +11,7 @@ export default function App() {
     if (running) {
       interval = setInterval(() => {
         setTime((prevTime) => prevTime + 10);
-      }, 10);
+      }, [10]);
     } else if (!running) {
       clearInterval(interval);
     }
